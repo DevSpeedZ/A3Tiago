@@ -14,12 +14,17 @@ public class Hud {
                 Digite a opção desejada:
                 """);
         switch (choice) {
-            case (choice == 1):
-                
-                break;
-            default:
-                throw new AssertionError();
+            case 1 -> {
+            }
+            case 2 -> {
+            }
+            case 3 -> {
+            }
+            case 4 -> {
+            }
+            default -> System.out.println("opção invalida");
         }
+        scanner.close();
     }
 
 }
