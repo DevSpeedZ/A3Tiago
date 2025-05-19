@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Login {
     private List<User> usuarios;
     private Scanner scanner;
+    private User usuarioLogado = null;
 
     public Login(Scanner scanner){
         usuarios = new ArrayList<>();
@@ -37,8 +38,7 @@ public class Login {
         for (User u : usuarios) {
             if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
                 System.out.println("Autenticação bem-sucedida!");
-                u.isActive = !u.isActive;
-                System.out.println(u.isActive);
+                usuarioLogado = u;
                 return true;
             }
         }
@@ -57,6 +57,7 @@ public class Login {
                 
                 1 - Registrar
                 2 - Logar
+                3 - Sair
                 
                 """);
             String choice = scanner.nextLine();
@@ -71,10 +72,23 @@ public class Login {
                     }
                     
                 }
+                case "3" ->{
+                    System.out.println("Obrigado por utilizar nossos serviços, até a próxima!!!");
+                    System.exit(0);
+                }
                 default -> System.out.println("opção invalida");
-            }
-                
+            } 
         }
+    }
+    
+    public User getUsuarioLogado() {
+        return usuarioLogado;
+    }
+    public void logOff(){
+        usuarioLogado = null;
+    }
+    public List<User> getUsuarios() {
+        return usuarios;
     }
 
 }

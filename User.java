@@ -1,27 +1,14 @@
 public class User{
-    private String nome;
-    private String username;
+
     private String email;
     private String password;
-    private float saldo;
+    private double saldo;
     private int iD;
-    private String nDeCelular;
-    public boolean isActive;
 
     public User(String email, String password ){
         this.email = email;
         this.password = password;
-        isActive = false;
-    }
-
-
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getUsername() {
-        return username;
+        this.saldo = 0.0;
     }
 
     public String getEmail() {
@@ -36,12 +23,20 @@ public class User{
         return iD;
     }
 
-    public String getnDeCelular() {
-        return nDeCelular;
+    public double getSaldo() {
+        return saldo;
+    }
+    
+    public void depositar(double valor) {
+        saldo += valor;
     }
 
-    public float getSaldo() {
-        return saldo;
+    public boolean sacar(double valor) {
+        if (valor <= saldo) {
+            saldo -= valor;
+            return true;
+        }
+        return false;
     }
 
     
