@@ -6,11 +6,12 @@ public class User{
     private float saldo;
     private int iD;
     private String nDeCelular;
-    private boolean isActive;
+    public boolean isActive;
 
-    public User(String username, String password ){
-        this.username = username;
+    public User(String email, String password ){
+        this.email = email;
         this.password = password;
+        isActive = false;
     }
 
 

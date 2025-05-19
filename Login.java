@@ -5,40 +5,40 @@ import java.util.Scanner;
 
 public class Login {
     private List<User> usuarios;
+    private Scanner scanner;
 
-    public Login(){
+    public Login(Scanner scanner){
         usuarios = new ArrayList<>();
+        this.scanner = scanner;
     }
 
     
     public void register(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite seu usuario: ");
-        String username = scanner.nextLine();
+        System.out.println("Digite seu email: ");
+        String email = scanner.nextLine();
         System.out.println("Digite sua senha: ");
         String senha = scanner.nextLine();
         // Verifica se já existe um usuário com esse nome
         for (User u : usuarios) {
-            if (u.getUsername().equals(username)) {
+            if (u.getEmail().equals(email)) {
                 System.out.println("Usuário já registrado.");
                 return;
             }
         }
-        usuarios.add(new User(username, senha));
+        usuarios.add(new User(email, senha));
         System.out.println("Usuário registrado com sucesso.");
-        scanner.close();
     }
 
     public boolean login() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Digite seu usuario: ");
-        String username = scanner.nextLine();
+        String email = scanner.nextLine();
         System.out.println("Digite sua senha: ");
         String senha = scanner.nextLine();
-        scanner.close();
         for (User u : usuarios) {
-            if (u.getUsername().equals(username) && u.getSenha().equals(senha)) {
+            if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
                 System.out.println("Autenticação bem-sucedida!");
+                u.isActive = !u.isActive;
+                System.out.println(u.isActive);
                 return true;
             }
         }
@@ -47,9 +47,8 @@ public class Login {
     }
 
     
-    public static void Hud(){
-        Scanner scanner = new Scanner(System.in);
-        Login login = new Login();
+    public void hud(){
+        Login login = new Login(scanner);
         while (true) { 
             
             System.out.println("""
@@ -64,13 +63,13 @@ public class Login {
             switch (choice) {
                 case "1" -> {
                     login.register();
-                    scanner.close();
                     break;
                 }
                 case "2" -> {
-                    login.login();
-                    scanner.close();
-                    break;
+                    if(login.login()){
+                        return;
+                    }
+                    
                 }
                 default -> System.out.println("opção invalida");
             }
