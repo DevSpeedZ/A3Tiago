@@ -37,18 +37,17 @@ public class Login {
         String senha = scanner.nextLine();
         for (User u : usuarios) {
             if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
-                System.out.println("Autenticação bem-sucedida!");
-                usuarioLogado = u;
+                System.out.println("Autenticação bem-sucedida! \n\n");
+                this.usuarioLogado = u;
                 return true;
             }
         }
-        System.out.println("Usuário ou senha incorretos.");
+        System.out.println("Usuário ou senha incorretos. \n\n");
         return false;
     }
 
     
     public void hud(){
-        Login login = new Login(scanner);
         while (true) { 
             
             System.out.println("""
@@ -63,11 +62,11 @@ public class Login {
             String choice = scanner.nextLine();
             switch (choice) {
                 case "1" -> {
-                    login.register();
+                    this.register();
                     break;
                 }
                 case "2" -> {
-                    if(login.login()){
+                    if(this.login()){
                         return;
                     }
                     
@@ -76,7 +75,7 @@ public class Login {
                     System.out.println("Obrigado por utilizar nossos serviços, até a próxima!!!");
                     System.exit(0);
                 }
-                default -> System.out.println("opção invalida");
+                default -> System.out.println("opção invalida \n\n");
             } 
         }
     }
@@ -85,7 +84,7 @@ public class Login {
         return usuarioLogado;
     }
     public void logOff(){
-        usuarioLogado = null;
+        this.usuarioLogado = null;
     }
     public List<User> getUsuarios() {
         return usuarios;

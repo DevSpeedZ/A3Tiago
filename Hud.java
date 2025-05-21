@@ -12,16 +12,16 @@ public class Hud {
     }
 
     public void menu(){
-        while(true){
+        while (login.getUsuarioLogado() != null) {
+            System.out.println("""
+                Qual operação você ira fazer?
+                1 - Consultar saldos
+                2 - Depositar valor
+                3 - Transferir valor
+                4 - sair
+                Digite a opção desejada:
+                """);
                 String choice = scanner.nextLine();
-                System.out.println("""
-                                        Qual operação você ira fazer?
-                                        1 - Consultar saldos
-                                        2 - Depositar valor
-                                        3 - Transferir valor
-                                        4 - sair
-                                        Digite a opção desejada:
-                                        """);
                 switch (choice) {
                     case "1" -> {
                         banco.verSaldo(login.getUsuarioLogado());
@@ -29,7 +29,11 @@ public class Hud {
                     case "2" -> {
                         System.out.println("Digite o valor a depositar: ");
                         Double valor = scanner.nextDouble();
-                        login.getUsuarioLogado().depositar(valor); //mexer no depositar
+                        scanner.nextLine();
+                        if(valor >= 0){
+                            login.getUsuarioLogado().depositar(valor); //mexer no depositar
+                            System.out.printf("R$ %.2f foram depositados \n\n", valor);
+                        }
                     }
                     case "3" -> {
                         banco.transferirSaldo(login.getUsuarioLogado(), login.getUsuarios());
@@ -41,8 +45,7 @@ public class Hud {
 
                     }
                     default -> System.out.println("opção invalida");
-                
-            }
-        }
+                }
+         }
     }
 }

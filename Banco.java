@@ -10,10 +10,10 @@ class Banco {
 
     public void verSaldo(User usuario) {
         if (usuario == null) {
-            System.out.println("Nenhum usuário está logado.");
+            System.out.println("Nenhum usuário está logado. \n");
             return;
         }
-        System.out.printf("Saldo atual: R$ %.2f%n", usuario.getSaldo());
+        System.out.printf("Saldo atual: R$ %.2f%n \n", usuario.getSaldo());
     }
 
     public void transferirSaldo(User remetente, List<User> usuarios) {
@@ -54,7 +54,7 @@ class Banco {
 
         if (remetente.sacar(valor)) {
             destino.depositar(valor);
-            System.out.printf("Transferência de R$ %.2f realizada para %s%n", valor, destino.getEmail());
+            System.out.printf("Transferência de R$ %.2f realizada para %s%n \n\n", valor, destino.getEmail());
         } else {
             System.out.println("Saldo insuficiente.");
         }

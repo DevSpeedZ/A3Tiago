@@ -1,0 +1,5 @@
+- fazer regex do email
+- fazer a proteção de transferencia
+- fazer o sistema de denuncia
+- fazer conta admin com acesso a central
+- fazer a blacklist

@@ -7,8 +7,13 @@ public class Main {
         Banco banco = new Banco(scanner);
         Hud hud = new Hud(scanner, banco, login);
 
-        login.hud();
-        hud.menu();
+        while (true) {
+            login.hud(); // ← aguarda login bem-sucedido
+
+            hud.menu(); // menu de operações do banco
+    
+        }
+
 
 
         
