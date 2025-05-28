@@ -36,7 +36,7 @@ public class Login {
         System.out.println("Digite sua senha: ");
         String senha = scanner.nextLine();
         for (User u : usuarios) {
-            if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
+            if (u.getEmail().equals(email) && u.validarSenha(senha)) {
                 System.out.println("Autenticação bem-sucedida! \n\n");
                 this.usuarioLogado = u;
                 return true;

@@ -1,26 +1,22 @@
 public class User{
 
     private String email;
-    private String password;
+    private String senhaHash;
     private double saldo;
-    private int iD;
 
     public User(String email, String password ){
         this.email = email;
-        this.password = password;
-        this.saldo = 0.0;
+        this.senhaHash = HashUtils.hashSenha(password);
+        this.saldo = 1000.0;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getSenha() {
-        return password;
-    }
-
-    public int getiD() {
-        return iD;
+    public boolean validarSenha(String senhaDigitada) {
+        String hashDigitado = HashUtils.hashSenha(senhaDigitada);
+        return hashDigitado.equals(senhaHash);
     }
 
     public double getSaldo() {

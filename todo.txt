@@ -3,3 +3,6 @@
 - fazer o sistema de denuncia
 - fazer conta admin com acesso a central
 - fazer a blacklist
+
+- talvez salvar perfis em xml 
+- talvez encriptografar o arquivo
