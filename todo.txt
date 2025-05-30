@@ -1,8 +1,8 @@
-- fazer regex do email
-- fazer a proteção de transferencia
 - fazer o sistema de denuncia
-- fazer conta admin com acesso a central
 - fazer a blacklist
-
-- talvez salvar perfis em xml 
-- talvez encriptografar o arquivo
+- fazer registro de transferencia 
+- fazer conta admin com acesso a central com historico de transacao de pessoa
+- fazer conexao com banco de dados
+- fazer regex do email
+ 
+ 
