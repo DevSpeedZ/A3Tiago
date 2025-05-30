@@ -11,7 +11,6 @@ public class Main {
             login.hud(); // ← aguarda login bem-sucedido
 
             hud.menu(); // menu de operações do banco
-    
         }
 
 
