@@ -31,7 +31,7 @@ public class Login {
     }
 
     public boolean login() {
-        System.out.println("Digite seu usuario: ");
+        System.out.println("Digite seu email: ");
         String email = scanner.nextLine();
         System.out.println("Digite sua senha: ");
         String senha = scanner.nextLine();
